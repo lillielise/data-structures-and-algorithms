@@ -8,9 +8,11 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  return word.toUpperCase();
-};
+// const greeting = (word) => {
+//   return word.toUpperCase();
+// };
+
+const greeting = (word) => word.toUpperCase();
 
 const speaker = (message, callback) => {
   return callback(message);
@@ -83,12 +85,18 @@ CHALLENGE 4
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
 ------------------------------------------------------------------------------------------------ */
 
+// const removeWithForEach = (arr, callback) => {
+//   arr.forEach( function(num){
+//     callback(num,arr);
+//   })
+//   return arr;
+// };
+
 const removeWithForEach = (arr, callback) => {
-  arr.forEach( function(num){
-    callback(num,arr);
-  })
+  arr.forEach((item) => callback(item,arr))
   return arr;
 };
+
 
 // describe('Testing challenge 4', () => {
 //   test('It shwould remove three elements from the array', () => {
@@ -107,11 +115,13 @@ This function should use forEach again, but rather than taking in a callback as 
 This anonymous function should accept up to three arguments: the element, the index, and the array.
 ------------------------------------------------------------------------------------------------ */
 
-const removeWithAnon = (arr) => {
-  arr.forEach( function(num, index, arr){
-    removeOne(num,arr);
+const removeWithAnon = (outerArray) => {
+  outerArray.forEach((element, _, arr) => {
+    if (element % 3 === 2){
+      outerArray.pop();
+    }
   })
-  return arr;
+  return outerArray;
 };
 
 // describe('Testing challenge 5', () => {
