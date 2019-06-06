@@ -35,8 +35,8 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  arr.sort();
-  return arr;
+
+  return arr.sort();
 };
 
 // describe('Testing challenge 2', () => {
@@ -234,7 +234,15 @@ const sortPeopleBetter = (arr) => {
       return 1;
     }
     if (a.lastName === b.lastName){
-      
+
+      if (a.firstName === b.firstName){
+        if (a.age < b.age){
+          return -1;
+        }
+      }
+      if (a.firstName < b.firstName){
+        return -1;
+      }
     }
   })
   return arr;
