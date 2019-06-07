@@ -13,12 +13,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  if (/\d/.test(input)){
-    return true;
-  }
-  else {
-    return false;
-  }
+  return /\d/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,12 +91,8 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   let validator = /^[Oo]ct(ober)?$/g
-  if (validator.test(input)){
-    return true;
-  }
-  else {
-    return false;
-  }
+  return validator.test(input);
+
 };
 
 // describe('Testing challenge 4', () => {
