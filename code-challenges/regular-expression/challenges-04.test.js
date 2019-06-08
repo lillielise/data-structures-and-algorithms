@@ -13,6 +13,8 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
+  // test will return boolean
+  // g looks for every instance, not necessary for this problem
   return /\d/.test(input);
 };
 
@@ -25,13 +27,20 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let validator = /\b(\w*[A-Z]\w*)\b/g;
-  let matchArray = str.match(validator);
-  if(matchArray === null){
-    return [];
-  } else {
-    return matchArray;
-  }
+  return str.match(/[A-Z][a-z]*/g) || [];
+
+
+  // let validator = /\b(\w*[A-Z]\w*)\b/g;
+  // let validator = (/[A-Z][a-zA-z]*/g) || [];
+  // .match runs the method on a string and takes in the regex
+  // .test runs the method on the regex and takes in the string
+  // returns null
+  // let matchArray = str.match(validator);
+  // if(matchArray === null){
+  //   return [];
+  // } else {
+  //   return matchArray;
+  // }
 };
 
 // describe('Testing challenge 2', () => {
@@ -125,6 +134,7 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  return str.match(/\w*\b\s/g)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,7 +150,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  return str.replace(/[aeiou]/gi, '_')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -231,7 +241,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
@@ -245,7 +255,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
 
   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
