@@ -91,16 +91,24 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  arr.forEach(person => {
-   
-    
-    if (var2 === []){
-      return false;
-    } else {
-      return true;
+
+  for (let element of arr){
+  
+    if (element.name === character){
+      // Object.values(element.children)
+      return Object.values(element.children).length > 0;
     }
-  });
-};
+  }
+  // let hasKids = false;
+
+  // arr.forEach(person => {
+  //   if (person.name === character){
+  //     hasKids = person.children.length > 0;
+  //   }
+  // });
+  // return hasKids;
+}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -121,7 +129,7 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
