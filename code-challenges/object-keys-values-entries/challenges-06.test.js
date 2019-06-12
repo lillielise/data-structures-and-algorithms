@@ -119,7 +119,12 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+
+  for(let element of arr) {
+    if(element.name === character) {
+      return Object.entries(element.children).length > 0;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
