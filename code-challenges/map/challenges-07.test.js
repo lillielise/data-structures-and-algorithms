@@ -11,7 +11,7 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  let timesTwo = arr.map((number) =>{
+  const timesTwo = arr.map((number) =>{
 
     return Math.pow(2, number);
   })
@@ -180,8 +180,8 @@ const snorlaxStats = {
 
 const extractStats = (arr) => {
 
-  let namesMap = arr.map(element => {
-    let total = element.effort + element.baseStat;
+  const namesMap = arr.map(element => {
+    const total = element.effort + element.baseStat;
     return {name: element.stat.name , total: total};
   })
   return namesMap;

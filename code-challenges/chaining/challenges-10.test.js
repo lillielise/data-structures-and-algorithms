@@ -59,12 +59,11 @@ const divisibleByFiveTwoToThePower = (input) => {
   let powerOfTwo = [];
 
   input.forEach(element => {
-    let onlyDivisibleBy5 =  element.filter(num => (typeof num === 'number') && !(num % 5));
-    powerOfTwo.push(onlyDivisibleBy5.map((number) => {
+    // let onlyDivisibleBy5 =  element.filter(num => (typeof num === 'number') && !(num % 5));
+    powerOfTwo.push(element.filter(num => (typeof num === 'number') && !(num % 5)).map((number) => {
       return Math.pow(2, number);
     }));
   });
-  console.log(typeof 5 === 'number');
   return powerOfTwo;
 };
 /* ------------------------------------------------------------------------------------------------

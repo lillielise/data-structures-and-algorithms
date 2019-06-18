@@ -144,10 +144,13 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   let sum = arr.reduce( (accumulator,value,idx) => {
-    accumulator = accumulator + 1;
+    if (value.children){
+      accumulator += value.children.length;
+    }
     return accumulator;
-  }, 0)
-};
+  }, 0);
+  return sum;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -191,8 +194,7 @@ If the input array does not have a stat with that specific name, the function sh
 ------------------------------------------------------------------------------------------------ */
 
 const snorlaxData = {
-  stats: [
-    {
+      {
       stat: {
         url: 'https://pokeapi.co/api/v2/stat/6/',
         name: 'speed',
