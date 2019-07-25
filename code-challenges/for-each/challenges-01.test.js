@@ -8,9 +8,6 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
-// const greeting = (word) => {
-//   return word.toUpperCase();
-// };
 
 const greeting = (word) => word.toUpperCase();
 
@@ -59,11 +56,7 @@ Then, write a function named removeElements that takes in an array and a callbac
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const removeOne = (num, arr) => {
-  if (num % 3 === 2){
-    arr.pop();
-  }
-};
+const removeOne = (num, arr) => (num % 3 === 2) ? arr.pop() : false;
 
 const removeElements = (arr, callback) => {
   for (let i = 0; i < arr.length; i++){
@@ -116,20 +109,13 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (outerArray) => {
-  outerArray.forEach((element, _, arr) => {
+  outerArray.forEach((element,index, arr) => {
     if (element % 3 === 2){
       outerArray.pop();
     }
   })
   return outerArray;
 };
-
-// describe('Testing challenge 5', () => {
-//   test('It should remove three elements from the array', () => {
-//     expect(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
-//     expect(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(7);
-//   });
-// });
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,7 +137,7 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   let availableInventory = [];
-  availableItems.forEach( function(element){
+  availableItems.forEach(element => {
     if (element.available){
       availableInventory.push(element.name)
     }
@@ -160,14 +146,7 @@ const createList = (availableItems) => {
   return availableInventory;
 };
 
-// describe('Testing challenge 6', () => {
-//   const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
 
-//   test('It should only add the available items to the list', () => {
-//     expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
-//     expect(createList(inventory).length).toStrictEqual(3);
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -185,7 +164,7 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   let output = [];
-  arr.forEach( function(element){
+  arr.forEach( element => {
     if (element % 5 === 0 && element % 3 === 0){
       element = 'Fizz Buzz';
     
@@ -201,7 +180,7 @@ const fizzbuzz = (arr) => {
 
     
     output.push(element)
-  }) 
+  });
   return output;
 };
 // describe('Testing challenge 7', () => {
