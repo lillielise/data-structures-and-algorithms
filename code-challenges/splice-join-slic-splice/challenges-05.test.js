@@ -1,7 +1,5 @@
 'use strict';
 
-import { arrayExpression } from "@babel/types";
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -69,7 +67,7 @@ const gruffaloCrumble = {
     'Sprinkle with cinnamon, sugar, flour, and nuts',
     'Mix until evenly distributed',
     'Grease a 3-foot x 3-foot casserole dish',
-    'Combine gruffalo compote with water to maintain moisture in the oven',31 2
+    'Combine gruffalo compote with water to maintain moisture in the oven',
     'Fold together remaining ingredients to make the crisp',
     'Spread the crisp evenly over the gruffalo mixture',
     'Bake for 12-15 hours',
@@ -80,7 +78,6 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   gruffaloCrumble.ingredients.forEach(element => {
-
     let newString = element.slice(element.indexOf(' ')+1);
     let secondString = newString.slice(newString.indexOf(' ')+1)
     result.push(secondString);
@@ -167,7 +164,7 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  console.log(str.splice(0, numberOfCharacters))
 };
 
 

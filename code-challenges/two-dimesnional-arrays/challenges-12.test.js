@@ -45,47 +45,20 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
 
-// const salesData = (hours, data) => {
-//   salesData = [];
-//   hours.forEach(hour => {
-//     let object = { sales: '' , time: }
-//   })
-// };
 
 const salesData = (hours, data) => {
 
   let salesData = [];
-  console.log('data', data)
   for(let i = 0; i < hours.length; i++){
-    let hourlySum = 0;
+    let hourlySum;
     hourlySum = data[i];
-    console.log('hourly sum', data[i])
     salesData.push({sales: `${hourlySum} cookies`, time: `${hours[i]}`});
   }
   return salesData;
 
 };
 
-// describe('Testing challenge 2', () => {
-//   test('It should create an object of data for each store', () => {
-//     expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
-//       { sales: '88 cookies', time: '9 a.m.' },
-//       { sales: '153 cookies', time: '10 a.m.' },
-//       { sales: '252 cookies', time: '11 a.m.' },
-//       { sales: '286 cookies', time: '12 p.m.' },
-//       { sales: '139 cookies', time: '1 p.m.' },
-//       { sales: '161 cookies', time: '2 p.m.' },
-//       { sales: '145 cookies', time: '3 p.m.' },
-//       { sales: '232 cookies', time: '4 p.m.' },
-//       { sales: '276 cookies', time: '5 p.m.' },
-//       { sales: '207 cookies', time: '6 p.m.' },
-//       { sales: '161 cookies', time: '7 p.m.' },
-//       { sales: '169 cookies', time: '8 p.m.' }
-//     ]);
 
-//     expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -146,16 +119,6 @@ const battleship = (board, row, col) => {
   return response;
 };
 
-// test('It should return "hit" when it hits a boat', () => {
-//   expect(battleship(battleshipData, 0, 0)).toStrictEqual('hit');
-//   expect(battleship(battleshipData, 1, 0)).toStrictEqual('hit');
-// });
-
-// test('It should return "miss" when it doesn\'t hit a boat', () => {
-//   expect(battleship(battleshipData, 0, 1)).toStrictEqual('miss');
-//   expect(battleship(battleshipData, 3, 0)).toStrictEqual('miss');
-// });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -166,8 +129,16 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let product = 1;
+  numbers.forEach(arr => {
+    arr.forEach(num => {
+      product = product * num;
+    })
+  })
+  return product;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -186,7 +157,14 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  const days = (weeklyTemperatures.length)*7;
+  let weatherTotal = 0;
+  weeklyTemperatures.forEach(week => {
+    week.forEach(day => {
+      weatherTotal += day;
+    })
+  })
+  return weatherTotal/days;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -207,7 +185,16 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let weeklyAverage = [];
+  for (let row = 0; row < weather.length; row++){
+    let weeklySum = 0;
+    for (let column = 0; column < weather[0].length; column++){
+      weeklySum += weather[row][column];
+    }
+    weeklyAverage.push(weeklySum/7);
+  }
+  weeklyAverage.sort(function(a,b){return a - b});
+  return weeklyAverage[0];
 };
 
 /* ------------------------------------------------------------------------------------------------
