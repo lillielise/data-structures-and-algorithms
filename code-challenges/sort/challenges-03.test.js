@@ -13,16 +13,6 @@ const sortBackwards = (arr) => {
   return arr;
 }
 
-// describe('Testing challenge 1', () => {
-//   test('It should sort high-to-low the numbers in an array', () => {
-//     const nums = [3,4,5,6,7];
-//     expect(sortBackwards(nums)).toStrictEqual([7,6,5,4,3]);
-//     expect(sortBackwards([3,2,1])).toStrictEqual([3,2,1]);
-//     expect(sortBackwards([12,20,3])).toStrictEqual([20, 12, 3]);
-//     expect(sortBackwards([])).toStrictEqual([]);
-//     expect(sortBackwards([1])).toStrictEqual([1]);
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -39,13 +29,6 @@ const alphabetize = (arr) => {
   return arr.sort();
 };
 
-// describe('Testing challenge 2', () => {
-//   test('It should sort strings alphabetically', () => {
-//     expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
-//     expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
-//     expect(alphabetize([])).toStrictEqual([]);
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -60,16 +43,7 @@ const sortByLength = (arr) => {
   return arr;
 };
 
-// describe('Testing challenge 3', () => {
-//   test('It should sort strings by length', () => {
-//     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-//     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
-//     expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-//     expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
-//     expect(sortByLength(['a'])).toStrictEqual(['a']);
-//     expect(sortByLength([])).toStrictEqual([]);
-//   });
-// });
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -83,6 +57,7 @@ const alphabetizeBetter = (arr) => {
   arr.sort((a,b) => {
     let aLC = a.toLowerCase();
     let bLC = b.toLowerCase();
+    
 
     if (aLC < bLC){
       return -1;
@@ -93,6 +68,7 @@ const alphabetizeBetter = (arr) => {
     if (aLC === bLC){
       return 0;
     }
+    
 
   });
   return arr;
@@ -113,35 +89,22 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   arr.sort((a,b) => {
-    if(a.price < b.price){
-      return -1;
-    }
-    if (a.price > b.price){
-      return 1;
-    }
-    if (a.price === b.price){
-      return 0;
-    }
+    return a.price - b.price
+    // if(a.price < b.price){
+    //   return -1;
+    // }
+    // if (a.price > b.price){
+    //   return 1;
+    // }
+    // if (a.price === b.price){
+    //   return 0;
+    // }
   })
   return arr;
 };
 
 
-// describe('Testing challenge 5', () => {
-//   test('It should sort items by their price', () => {
-//     expect(sortByPrice([
-//       {name: 'Sweatshirt', price: 45},
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15}
-//     ])).toStrictEqual([
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15},
-//       {name: 'Sweatshirt', price: 45},
-//     ]);
-//     expect(sortByPrice([{price: 12}, {price: 10}])).toStrictEqual([{price: 10}, {price: 12}]);
-//     expect(sortByPrice([])).toStrictEqual([]);
-//   });
-// });
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -161,13 +124,7 @@ const sortNumbersByLength = (arr) => {
   return arr;
 };
 
-// describe('Testing challenge 6', () => {
-//   test('It should sort numbers by their length', () => {
-//     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
-//     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
-//     expect(sortNumbersByLength([1,2,3])).toEqual(expect.arrayContaining([1,2,3]));
-//   });
-// });
+
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -189,6 +146,7 @@ const people = [
 
 const sortPeople = (arr) => {
   arr.sort((a,b) => {
+
     if(a.lastName < b.lastName){
       return -1;
     }
@@ -202,17 +160,6 @@ const sortPeople = (arr) => {
   return arr;
 };
 
-// describe('Testing challenge 7', () => {
-//   test('It should sort people by their last names', () => {
-//     expect(sortPeople(people)).toStrictEqual([
-//       new Person('Casey', 'Codefellow', 38),
-//       new Person('Stan', 'Seattle', 67),
-//       new Person('Wes', 'Washington', 25),
-//     ]);
-//     expect(sortPeople([{lastName: 'banana'}, {lastName: 'apple'}]))
-//       .toStrictEqual([{lastName: 'apple'}, {lastName: 'banana'}]);
-//   });
-// });
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -227,6 +174,7 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   arr.sort((a,b) => {
+
     if(a.lastName < b.lastName){
       return -1;
     }
@@ -248,26 +196,7 @@ const sortPeopleBetter = (arr) => {
   return arr;
 };
 
-// describe('Testing challenge 8', () => {
-//   test('It should sort people with more strict ordering', () => {
-//     const family = [
-//       new Person('Casey', 'Codefellows', 55),
-//       new Person('Casey', 'Codefellows', 37),
-//       new Person('Charlie', 'Codefellows', 21),
-//       new Person('Charles', 'Codefellows', 29),
-//       new Person('Carol', 'Codefellow', 88),
-//     ];
-//     expect(sortPeopleBetter(family)).toStrictEqual([
-//       new Person('Carol', 'Codefellow', 88),
-//       new Person('Casey', 'Codefellows', 37),
-//       new Person('Casey', 'Codefellows', 55),
-//       new Person('Charles', 'Codefellows', 29),
-//       new Person('Charlie', 'Codefellows', 21),
-//     ]);
-//     expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple'}, {firstName: 'andre', lastName: 'apple'}]))
-//       .toStrictEqual([{firstName: 'andre', lastName: 'apple'}, {firstName: 'andrew', lastName: 'apple'}]);
-//   });
-// });
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
