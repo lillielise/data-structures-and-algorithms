@@ -88,14 +88,10 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   const lukesMass = 77;
-  // const lukesMass = parseInt(arr[0].mass)
-  // console.log('LUKES MASS', lukesMass);
   let biggerThanLukeArr = [];
 
   arr.forEach(person => {
-    // console.log('LUKES MASS 2', lukesMass);
     if (parseInt(person.mass) > lukesMass){
-      // console.log('LUKES MASS 3', lukesMass);
       biggerThanLukeArr.push(person.name);
     }
   }); return biggerThanLukeArr.join(' - ');

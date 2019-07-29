@@ -146,17 +146,10 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  let humansHeight = [];
-  let humans = [];
-  data.forEach(character => { 
-    humans.push({character : character.name, height : character.height})
+  let humansSorted =  data.sort((a,b) => {
+    return a.height - b.height;
   })
-  console.log(humans.height)
-  let humansSorted =  humans.sort((a,b) => {
-    console.log(a,b)
-    return a - b;
-  })
-  console.log(humansSorted);
+  return humansSorted[0].name;
 };
 
 /* ------------------------------------------------------------------------------------------------
