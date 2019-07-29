@@ -11,7 +11,7 @@ Note: You may not use the array's built-in length property.
 const countNumberOfElements = (arr) => {
   let sum = arr.reduce( (accumulator,value,idx) => {
     accumulator = accumulator + 1;
-    return accumulator;
+    return accumulator; 
   }, 0)
   return sum;
 };
@@ -161,8 +161,17 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  let average = arr.reduce ((accumulater, value, idx) => {
+    accumulater = value/(idx + 1);
+    console.log(accumulater)
+  }, 0)
 };
+
+// describe('Testing challenge 5', () => {
+//   test('It should return the average of the numbers in the array', () => {
+//     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6

@@ -59,7 +59,6 @@ const divisibleByFiveTwoToThePower = (input) => {
   let powerOfTwo = [];
 
   input.forEach(element => {
-    // let onlyDivisibleBy5 =  element.filter(num => (typeof num === 'number') && !(num % 5));
     powerOfTwo.push(element.filter(num => (typeof num === 'number') && !(num % 5)).map((number) => {
       return Math.pow(2, number);
     }));
@@ -128,7 +127,7 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
+const findMaleAndFemale = (data) => {
   let humansAnd = [];
   let humans = [];
   data.forEach(character =>{
@@ -147,7 +146,17 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  let humansHeight = [];
+  let humans = [];
+  data.forEach(character => { 
+    humans.push({character : character.name, height : character.height})
+  })
+  console.log(humans.height)
+  let humansSorted =  humans.sort((a,b) => {
+    console.log(a,b)
+    return a - b;
+  })
+  console.log(humansSorted);
 };
 
 /* ------------------------------------------------------------------------------------------------
