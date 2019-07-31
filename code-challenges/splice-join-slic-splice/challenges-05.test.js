@@ -82,6 +82,7 @@ const listFoods = (recipe) => {
     let secondString = newString.slice(newString.indexOf(' ')+1)
     result.push(secondString);
 
+
   });
   return result;
 };
@@ -140,11 +141,13 @@ For example:
 
 const removeEvenValues = (arr) => {
 
-  arrayExpression.forEach( function(element, index){
+  arr.forEach((element, index) => {
     if (element % 2 === 0){
-      array.splice(index, 1)
-    });
-
+      console.log(element)
+      arr.splice(index, 1)
+    }
+  });
+  console.log(arr)
   return arr;
 };
 
@@ -164,8 +167,11 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  console.log(str.splice(0, numberOfCharacters))
+  let split = str.split('');
+  console.log(split.length)
+  return split.splice(0, (split.length - numberOfCharacters)).join('');
 };
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -256,7 +262,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-describe('Testing challenge 6', () => {
+xdescribe('Testing challenge 6', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -269,7 +275,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
