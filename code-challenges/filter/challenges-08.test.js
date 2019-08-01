@@ -100,7 +100,6 @@ const getBaseStatGreaterThan = (arr, minBaseStat) => {
       return true;
     }
   })
-  console.log(statsFilter)
   return statsFilter;
 };
 
@@ -113,9 +112,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-
-  console.log(arr.stat)
-
+  let statsName = [];
   let statsFilter = arr.filter(stat => {
     
     if (stat.baseStat <= minBaseStat){
@@ -125,29 +122,12 @@ const getStatName = (arr, minBaseStat) => {
     }
   })
 
-  return statsFilter;
+  statsFilter.forEach(obj => {
+    statsName.push(obj.stat.name);
+  });
+  return statsName;
 };
 
-// describe('Testing challenge 5', () => {
-//   test('It should return the name of the stats that exceed that maximum', () => {
-//     expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
-//     expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
-//   });
-
-//   test('It should return the name of the stats that exceed that maximum', () => {
-//     expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
-//     expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
-//   });
-
-//   test('It should work for non-snorlax data', () => {
-//     expect(getStatName([
-//       {baseStat: 10, stat: {name: 'one'}},
-//       {baseStat: -85, stat: {name: 'two'}},
-//       {baseStat: 0, stat: {name: 'three'}},
-//       {baseStat: -50, stat: {name: 'four'}}
-//     ], -60)).toStrictEqual(['one', 'three', 'four']);
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -199,7 +179,14 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  let charactersWithoutChildren = arr.filter(character => {
+    if (character.children){
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return charactersWithoutChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -303,7 +290,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return an array containing characters who do not have children', () => {
     expect(getCharactersWithoutChildren(characters)).toStrictEqual([ { name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' } ]);
     expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);

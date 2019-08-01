@@ -161,17 +161,12 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  let average = arr.reduce ((accumulater, value, idx) => {
-    accumulater = value/(idx + 1);
-    console.log(accumulater)
+  let average = arr.reduce ((accumulator, value) => {
+    accumulator += value;
+    return accumulator;
   }, 0)
+  return average/arr.length;
 };
-
-// describe('Testing challenge 5', () => {
-//   test('It should return the average of the numbers in the array', () => {
-//     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -191,7 +186,7 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((accumulator, value) => isPrime(value) ? accumulator + 1 : accumulator, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -202,35 +197,35 @@ Write a function named extractState that, given the snorlaxData, below, uses red
 If the input array does not have a stat with that specific name, the function should return null.
 ------------------------------------------------------------------------------------------------ */
 
-const snorlaxData = {
-      {
-      stat: {
-        url: 'https://pokeapi.co/api/v2/stat/6/',
-        name: 'speed',
-      },
-      effort: 5,
-      baseStat: 30,
-    },
-    {
-      stat: {
-        url: 'https://pokeapi.co/api/v2/stat/5/',
-        name: 'special-defense',
-      },
-      effort: 2,
-      baseStat: 110,
-    },
-    {
-      stat: {
-        url: 'https://pokeapi.co/api/v2/stat/4/',
-        name: 'special-attack',
-      },
-      effort: 9,
-      baseStat: 65,
-    },
-  ],
-  name: 'snorlax',
-  weight: 4600,
-};
+// const snorlaxData = {
+//       {
+//       stat: {
+//         url: 'https://pokeapi.co/api/v2/stat/6/',
+//         name: 'speed',
+//       },
+//       effort: 5,
+//       baseStat: 30,
+//     },
+//     {
+//       stat: {
+//         url: 'https://pokeapi.co/api/v2/stat/5/',
+//         name: 'special-defense',
+//       },
+//       effort: 2,
+//       baseStat: 110,
+//     },
+//     {
+//       stat: {
+//         url: 'https://pokeapi.co/api/v2/stat/4/',
+//         name: 'special-attack',
+//       },
+//       effort: 9,
+//       baseStat: 65,
+//     },
+//   ],
+//   name: 'snorlax',
+//   weight: 4600,
+// };
 
 const extractStat = (statName, arr) => {
   // Solution code here...
